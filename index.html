@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="kor">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@JunHyeong Lee</title>
+    <style>
+        body{
+            background-color: #212121;
+            height: 5000px;
+        }
+        #home_icon{
+            position:absolute;
+            width:150px;
+            height:130px;
+        }
+        #head_list{
+            position: absolute;
+            margin-left:100px;
+            margin-top:50px;
+            list-style-type :disc;
+        }
+        #head_list a{
+            color: #808080;
+            float:left;
+            margin-left:40px;
+            text-decoration: none;
+        }
+        #head_list a:hover{
+            color:white;
+            text-decoration: underline;
+            font-size:120%;
+        }
+        #mylink{
+            color: #808080;
+            position:absolute;
+            margin-top:50px;
+            margin-left:85%;
+        }
+        #mylink:hover{
+            color:white;
+            text-decoration: underline;
+            font-size:120%;
+        }
+        button{
+            margin-top:25px;
+            margin-left: 90%;
+            background-color: transparent;
+            border:none;
+        }
+        #music{
+            width:50px;
+            height:50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href = 'index.html'>
+            <img id = "home_icon" src = "assets/home_icon.png">
+        </a>
+        <ul id = 'head_list'>
+            <a li href = '#'>Who is JunHyeong</a>
+            <a li href = '#'>Project</a>
+            <a li href = '#'>Tistory</a>
+            <a li href = '#'>Github</a>
+            <a li href = '#'>Gmail</a>
+            <a li href = '#'>Instagram</a>
+        </ul>
+
+    <p id="mylink">share this</p>
+    <button type ="button" id = "musicbutton" onclick = "toggleMusic()">
+        <img id = "music" src = "https://media.giphy.com/media/Nhfd9oF0pYvn2/giphy.gif" alt="music">
+    </button>
+
+    <script>
+        // 링크복사
+        document.getElementById("mylink").addEventListener("click", function() {
+          var copyText = window.location.href;
+          navigator.clipboard.writeText(copyText)
+            .then(function() {
+              alert("링크가 성공적으로 복사되었습니다!");
+            })
+            .catch(function() {
+              alert("링크 복사에 실패했습니다.");
+            });
+        });
+            window.addEventListener('load', function() {
+                sound.play();
+            });
+            var isOn = false;
+            var musicbutton = document.getElementById('musicbutton');
+            var sound = new Audio('assets/fire.mp3');
+            var image = document.getElementById('music');
+
+            function toggleMusic() {
+                isOn = !isOn;
+                if (isOn)   sound.play();
+                else    sound.pause();
+        }
+    </script>
+    </div>
+</body>
+</html>
